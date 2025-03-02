@@ -1,15 +1,31 @@
+{{ define "base" }}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Portfolio</title>
     <script src="https://unpkg.com/htmx.org@2.0.4" 
         integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" 
         crossorigin="anonymous"
 	></script>
 </head>
 <body>
-    <h1>Hello World!</h1>
+    {{ template "navbar" . }}
+    <main>
+        <section class="homepage">
+            <!-- Home section -->
+        </section>
+        <section class="projects">
+            <!-- Projects section -->
+        </section>
+        <section class="about">
+            <!-- About section -->
+        </section>
+        <section class="contact">
+            <!-- Contact section -->
+        </section>
+    </main>
 </body>
 </html>
+{{ end }}
