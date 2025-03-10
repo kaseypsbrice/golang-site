@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./static/output.css" rel="stylesheet">
     <title>My Portfolio</title>
     <script src="https://unpkg.com/htmx.org@2.0.4" 
         integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" 
@@ -13,16 +14,16 @@
 <body>
     {{ template "navbar" . }}
     <main>
-        <section class="homepage">
-            <!-- Home section -->
+        <section id="home">
+            {{ template "home" . }}
         </section>
-        <section class="projects">
+        <section id="projects">
             <!-- Projects section -->
         </section>
-        <section class="about">
+        <section id="about">
             <!-- About section -->
         </section>
-        <section class="contact">
+        <section id="contact">
             <!-- Contact section -->
         </section>
     </main>

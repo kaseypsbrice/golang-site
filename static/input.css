@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@theme {
+  --color-purple-high: #d7d7ff;
+}
+
+@layer components {
+  .navbar .navbar-link {
+    @apply no-underline hover:underline decoration-purple-high decoration-4;
+  }
+}
+
+@keyframes lineGrow {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .animate-line-grow {
+    animation: lineGrow 2s ease-out forwards;
+    animation-delay: .2s;
+  }
+}

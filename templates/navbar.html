@@ -1,10 +1,13 @@
 {{ define "navbar" }}
-<nav>
-    <div>KPSB</div>
-    <ul>
-        <li><a href="#projects">Projects</li>
-        <li><a href="#about">About</li>
-        <li><a href="#contact">Contact</li>
+<nav class="navbar flex justify-between items-center p-4 bg-gray-100 px-10 text-black">
+    <a href="#home" class="text-sm/3 font-black flex flex-col">
+        <span>KP</span>
+        <span class="navbar-link">SB</span>
+    </a>
+    <ul class="flex space-x-10 ml-auto font-bold text-base">
+        <li><a href="#projects" class="navbar-link">Projects</a></li>
+        <li><a href="#about" class="navbar-link">About</a></li>
+        <li><a href="#contact" class="navbar-link">Contact</a></li>
     </ul>
 </nav>
 {{ end }}
