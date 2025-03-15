@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -20,7 +19,7 @@ func getAdelaideTime() (string, string) {
 		return "", ""
 	}
 	adelaideTime := time.Now().In(location)
-	hours := adelaideTime.Format("15")  // 24-hour format for hours
+	hours := adelaideTime.Format("15")   // 24-hour format for hours
 	minutes := adelaideTime.Format("04") // Minutes without a leading zero
 	return hours, minutes
 	// 15:04 is a reference for how the time should be displayed
@@ -42,14 +41,19 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 
 func timeAPI(w http.ResponseWriter, r *http.Request) {
 	hours, minutes := getAdelaideTime()
-	response := map[string]string{
-		"hours":   hours,
-		"minutes": minutes,
-	}
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(response)
+
+	response := fmt.Sprintf(`
+		<div class="flex flex-col">
+			<span class="text-4xl">%s</span>
+			<span class="text-4xl">%s</span>
+			<span class="text-1xl">ACST</span>
+		</div>
+	`, hours, minutes)
+
+	w.Header().Set("Content-Type", "text/html")
+	w.Write([]byte(response))
 }
-// Returns current Adelaide time as JSON
+// Returns current Adelaide time in HTML
 
 func main() {
 	fmt.Println("Starting server on :8000...")
