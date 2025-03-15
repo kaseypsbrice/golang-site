@@ -519,6 +519,9 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
   .absolute {
     position: absolute;
   }
@@ -549,14 +552,77 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
+  .left-30 {
+    left: calc(var(--spacing) * 30);
+  }
   .z-10 {
     z-index: 10;
+  }
+  .-mt-2 {
+    margin-top: calc(var(--spacing) * -2);
+  }
+  .-mt-4 {
+    margin-top: calc(var(--spacing) * -4);
+  }
+  .-mt-5 {
+    margin-top: calc(var(--spacing) * -5);
   }
   .-mt-8 {
     margin-top: calc(var(--spacing) * -8);
   }
   .mt-\[13\%\] {
     margin-top: 13%;
+  }
+  .mt-\[20vh\] {
+    margin-top: 20vh;
+  }
+  .mr-9 {
+    margin-right: calc(var(--spacing) * 9);
+  }
+  .mr-20 {
+    margin-right: calc(var(--spacing) * 20);
+  }
+  .mr-80 {
+    margin-right: calc(var(--spacing) * 80);
+  }
+  .mr-100 {
+    margin-right: calc(var(--spacing) * 100);
+  }
+  .mr-\[3em\] {
+    margin-right: 3em;
+  }
+  .mr-\[10em\] {
+    margin-right: 10em;
+  }
+  .mr-\[11em\] {
+    margin-right: 11em;
+  }
+  .mr-\[12em\] {
+    margin-right: 12em;
+  }
+  .mr-\[20\%\] {
+    margin-right: 20%;
+  }
+  .mr-\[20em\] {
+    margin-right: 20em;
+  }
+  .mr-\[20vw\] {
+    margin-right: 20vw;
+  }
+  .mr-\[23\%\] {
+    margin-right: 23%;
+  }
+  .mr-\[25\%\] {
+    margin-right: 25%;
+  }
+  .mr-auto {
+    margin-right: auto;
+  }
+  .ml-10 {
+    margin-left: calc(var(--spacing) * 10);
+  }
+  .ml-28 {
+    margin-left: calc(var(--spacing) * 28);
   }
   .ml-\[10\%\] {
     margin-left: 10%;
@@ -570,8 +636,29 @@
   .ml-auto {
     margin-left: auto;
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
+  }
+  .hidden {
+    display: none;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
+  .table {
+    display: table;
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-18 {
     height: calc(var(--spacing) * 18);
@@ -585,14 +672,77 @@
   .w-0 {
     width: calc(var(--spacing) * 0);
   }
+  .w-2 {
+    width: calc(var(--spacing) * 2);
+  }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
+  .w-\[2\] {
+    width: 2;
+  }
+  .w-\[10vw\] {
+    width: 10vw;
+  }
+  .w-\[60vw\] {
+    width: 60vw;
+  }
+  .w-fit {
+    width: fit-content;
+  }
   .w-full {
     width: 100%;
+  }
+  .max-w-4 {
+    max-width: calc(var(--spacing) * 4);
+  }
+  .max-w-29 {
+    max-width: calc(var(--spacing) * 29);
+  }
+  .max-w-90 {
+    max-width: calc(var(--spacing) * 90);
+  }
+  .max-w-100 {
+    max-width: calc(var(--spacing) * 100);
+  }
+  .max-w-\[11em\] {
+    max-width: 11em;
+  }
+  .max-w-\[20em\] {
+    max-width: 20em;
+  }
+  .max-w-\[30em\] {
+    max-width: 30em;
+  }
+  .max-w-\[35em\] {
+    max-width: 35em;
+  }
+  .max-w-\[36em\] {
+    max-width: 36em;
+  }
+  .max-w-\[40em\] {
+    max-width: 40em;
+  }
+  .max-w-\[50vw\] {
+    max-width: 50vw;
+  }
+  .max-w-\[60em\] {
+    max-width: 60em;
   }
   .max-w-full {
     max-width: 100%;
   }
   .flex-1 {
     flex: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .resize {
+    resize: both;
   }
   .flex-col {
     flex-direction: column;
@@ -615,6 +765,10 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .border {
+    border-style: var(--tw-border-style);
+    border-width: 1px;
   }
   .bg-gray-100 {
     background-color: var(--color-gray-100);
@@ -640,15 +794,35 @@
   .py-5 {
     padding-block: calc(var(--spacing) * 5);
   }
+  .pt-20 {
+    padding-top: calc(var(--spacing) * 20);
+  }
+  .pt-\[20vh\] {
+    padding-top: 20vh;
+  }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
+  }
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
+  }
+  .pl-14 {
+    padding-left: calc(var(--spacing) * 14);
   }
   .pl-30 {
     padding-left: calc(var(--spacing) * 30);
   }
+  .text-2xl {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
   }
   .text-6xl {
     font-size: var(--text-6xl);
@@ -658,9 +832,9 @@
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
   }
-  .text-xl {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
+  .text-sm {
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-sm\/3 {
     font-size: var(--text-sm);
@@ -677,6 +851,21 @@
   .text-black {
     color: var(--color-black);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+  font-family: "Noto Sans", sans-serif;
 }
 @layer components {
   .navbar .navbar-link {
@@ -756,12 +945,51 @@
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
+}
 @property --tw-space-x-reverse {
   syntax: "*";
   inherits: false;
   initial-value: 0;
 }
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+@property --tw-ease {
   syntax: "*";
   inherits: false;
 }

@@ -8,10 +8,6 @@ import (
 	"time"
 )
 
-type PageData struct {
-	AdelaideTime string
-}
-
 func getAdelaideTime() (string, string) {
 	location, err := time.LoadLocation("Australia/Adelaide")
 	if err != nil {
@@ -19,8 +15,8 @@ func getAdelaideTime() (string, string) {
 		return "", ""
 	}
 	adelaideTime := time.Now().In(location)
-	hours := adelaideTime.Format("15")   // 24-hour format for hours
-	minutes := adelaideTime.Format("04") // Minutes without a leading zero
+	hours := adelaideTime.Format("15")
+	minutes := adelaideTime.Format("04")
 	return hours, minutes
 	// 15:04 is a reference for how the time should be displayed
 	// (in 24 hour time)
@@ -31,6 +27,8 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 		"index.html",
 		"templates/navbar.html",
 		"templates/home.html",
+		"templates/projects.html",
+		"templates/sticky_note.html",
 	))
 
 	if err := tmpl.ExecuteTemplate(w, "base", nil); err != nil {
