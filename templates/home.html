@@ -1,9 +1,39 @@
 {{ define "home" }}
-<div class="flex flex-col">
-    <span class="mt-[13%] ml-[8%] text-black font-black text-6xl pb-4">kasey_brice :=</span>
+<div class="flex flex-col text-black">
+    <span class="mt-[13%] ml-[10%] font-black text-6xl pb-4">kasey_brice :=</span>
     <div class="relative overflow-hidden">
-        <span class="ml-[14%] text-black font-black text-6xl">"Software Developer"</span>
+        <span class="ml-[19%] font-black text-6xl">"Software Developer"</span>
         <div class="bg-purple-high h-18 ml-[14%] bottom-0 -mt-8 w-0 max-w-full animate-line-grow"></div>
     </div>
+    <div class="absolute font-bold right-80 top-50">
+        <span id="adelaide-hours" class="text-4xl"></span>
+        <br>
+        <span id="adelaide-minutes" class="text-4xl"></span>
+        <br>
+        <span class="text-1xl font-black">ACST</span>
+    </div>
+    <div class="flex-row pl-30 absolute top-[80vh]">
+        <span class="mdi--github"></span>
+        <span class="mdi--linkedin"></span>
+    </div>
 </div>
+
+<script>
+    function updateTime() {
+        fetch('/api/time')
+            .then(response => response.json())
+            .then(data => {
+                const hoursElement = document.getElementById('adelaide-hours');
+                const minutesElement = document.getElementById('adelaide-minutes');
+                // Updates both hours and minutes
+                hoursElement.textContent = data.hours;
+                minutesElement.textContent = data.minutes;
+            })
+            .catch(error => console.error('Error fetching time:', error));
+    }
+
+    updateTime();
+    setInterval(updateTime, 60000);
+    // Updates time every minute
+</script>
 {{ end }}

@@ -13,19 +13,24 @@
 </head>
 <body>
     {{ template "navbar" . }}
-    <main>
-        <section id="home">
+    <main class="flex flex-col">
+        <section id="home" class="flex-1 min-h-[80vh] bg-gray-100">
             {{ template "home" . }}
         </section>
-        <section id="projects">
+        <section id="projects" class="flex-1 min-h-screen bg-gray-200">
             <!-- Projects section -->
         </section>
-        <section id="about">
+        <section id="about" class="flex-1 min-h-screen bg-gray-300">
             <!-- About section -->
         </section>
-        <section id="contact">
+        <section id="contact" class="flex-1 min-h-screen bg-gray-400">
             <!-- Contact section -->
         </section>
+        <!-- Icons 
+        <div class="flex-row pl-30 absolute fixed bottom-0 p-5 w-full">
+            <span class="mdi--github"></span>
+            <span class="mdi--linkedin"></span>
+        </div> -->
     </main>
 </body>
 </html>
