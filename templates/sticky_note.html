@@ -1,3 +1,11 @@
 {{ define "sticky_note" }}
-<div></div>
+<div class="relative">
+    <div class="bg-purple-300 h-[315px] w-[313px]"></div>
+    <div class="bg-purple-400 h-[38px] w-[313px] absolute top-0 text-wrap p-1 text-lg">
+        {{ .Name }}
+        <div class="relative pt-5 text-base">
+            {{ .Description }}
+        </div>
+    </div>
+</div>
 {{ end }}

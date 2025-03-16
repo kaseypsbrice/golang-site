@@ -1,7 +1,11 @@
 {{ define "projects" }}
 <div class="relative overflow-hidden">
-    <div class="text-black text-4xl font-black mt-[20vh] ml-auto mr-[11em] w-fit">Projects</div>
+    <div class="text-black text-4xl font-black mt-[15vh] ml-auto mr-[11em] w-fit">Projects</div>
     <div class="bg-purple-high h-8 bottom-0 -mt-5 ml-auto w-0 max-w-[36em] animate-line-grow"></div>
 </div>
-{{ template "sticky_note" . }}
+<div class="flex flex-wrap gap-4">
+    {{ range .Projects }}
+        {{ template "sticky_note" . }}
+    {{ end }}
+</div>
 {{ end }}

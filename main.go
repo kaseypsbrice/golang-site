@@ -1,12 +1,34 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"time"
 )
+
+type Project struct {
+	Name		string	`json:"name"`
+	Description	string	`json:"description"`
+}
+
+func loadProjects() ([]Project, error) {
+	data, err := os.ReadFile("projects.json")
+	if err != nil {
+		return nil, err
+	}
+
+	var projects []Project
+	err = json.Unmarshal(data, &projects)
+	if err != nil {
+		return nil, err
+	}
+
+	return projects, nil
+}
 
 func getAdelaideTime() (string, string) {
 	location, err := time.LoadLocation("Australia/Adelaide")
@@ -23,6 +45,18 @@ func getAdelaideTime() (string, string) {
 }
 
 func handleTemplates(w http.ResponseWriter, r *http.Request) {
+	projects, err := loadProjects()
+	if err != nil {
+		http.Error(w, "Failed to load projects", http.StatusInternalServerError)
+		return
+	}
+
+	data:= struct {
+		Projects []Project
+	}{
+		Projects: projects,
+	}
+
 	tmpl := template.Must(template.ParseFiles(
 		"index.html",
 		"templates/navbar.html",
@@ -31,7 +65,7 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 		"templates/sticky_note.html",
 	))
 
-	if err := tmpl.ExecuteTemplate(w, "base", nil); err != nil {
+	if err := tmpl.ExecuteTemplate(w, "base", data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
