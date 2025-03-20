@@ -1,12 +1,25 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-  font-family: "Noto Sans", sans-serif;
+body {
+  /* Add font-family */
 }
 
 @theme {
-  --color-purple-high: #d7d7ff;
+  --color-purple-high: #d7d7ff; /* Highlight for titles */
+
+  /* === Project Notes === */
+  /* Purple */
+  --color-purple-note-header: #c6c6fb;
+  --color-purple-note-base: #d7d7ff;
+  /* Yellow */
+  --color-yellow-note-header: #fee8b1;
+  --color-yellow-note-base: #fff4d7;
+  /* Pink */
+  --color-pink-note-header: #ffd8d9;
+  --color-pink-note-base: #ffe4e5;
+  /* Blue */
+  --color-blue-note-header: #c8f3fb;
+  --color-blue-note-base: #d8f9ff;
 }
 
 @layer components {

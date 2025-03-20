@@ -11,12 +11,16 @@ import (
 )
 
 type Project struct {
-	Name		string	`json:"name"`
-	Description	string	`json:"description"`
+	Name			string		`json:"name"`
+	Description		string		`json:"description"`
+	Tags			[]string	`json:"tags"`
+	Featured		bool		`json:"featured"`
+	HeaderColour	string
+	BaseColour		string
 }
 
-func loadProjects() ([]Project, error) {
-	data, err := os.ReadFile("projects.json")
+func loadProjects(filename string) ([]Project, error) {
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}
@@ -26,6 +30,25 @@ func loadProjects() ([]Project, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	noteThemes := []struct {
+		Header string
+		Base   string
+	}{
+		{"bg-purple-note-header", "bg-purple-note-base"},
+		{"bg-yellow-note-header", "bg-yellow-note-base"},
+		{"bg-pink-note-header", "bg-pink-note-base"},
+		{"bg-blue-note-header", "bg-blue-note-base"},
+	}
+	// Colour themes for our project notes
+
+	for i := range projects {
+		theme := noteThemes[i%len(noteThemes)]
+		projects[i].HeaderColour = theme.Header
+		projects[i].BaseColour = theme.Base
+	}
+	// Cycles through the themes
+	// Assigns colours in sequential order
 
 	return projects, nil
 }
@@ -45,16 +68,23 @@ func getAdelaideTime() (string, string) {
 }
 
 func handleTemplates(w http.ResponseWriter, r *http.Request) {
-	projects, err := loadProjects()
+	projects, err := loadProjects("projects.json")
 	if err != nil {
 		http.Error(w, "Failed to load projects", http.StatusInternalServerError)
 		return
 	}
+	featuredProjects, err := loadProjects("featured_projects.json")
+	if err != nil {
+		http.Error(w, "Failed to load featured projects", http.StatusInternalServerError)
+		return
+	}
 
-	data:= struct {
-		Projects []Project
+	data := struct {
+		Projects        []Project
+		FeaturedProjects []Project
 	}{
-		Projects: projects,
+		Projects:        projects,
+		FeaturedProjects: featuredProjects,
 	}
 
 	tmpl := template.Must(template.ParseFiles(
