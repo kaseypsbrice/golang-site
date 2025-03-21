@@ -79,6 +79,10 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	funcMap := template.FuncMap{
+		"mod": func(a, b int) int { return a % b }, // Custom mod function
+	}
+
 	data := struct {
 		Projects        []Project
 		FeaturedProjects []Project
@@ -87,7 +91,7 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 		FeaturedProjects: featuredProjects,
 	}
 
-	tmpl := template.Must(template.ParseFiles(
+	tmpl := template.Must(template.New("").Funcs(funcMap).ParseFiles(
 		"index.html",
 		"templates/navbar.html",
 		"templates/home.html",

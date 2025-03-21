@@ -6,6 +6,7 @@ body {
 
 @theme {
   --color-purple-high: #d7d7ff; /* Highlight for titles */
+  --color-purple-backing: #eff0ff;
 
   /* === Project Notes === */
   /* Purple */

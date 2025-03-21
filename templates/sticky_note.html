@@ -1,9 +1,14 @@
 {{ define "sticky_note" }}
 <div class="relative">
-    <div class="{{ .BaseColour }} h-[315px] w-[313px] flex flex-col rounded-[10px] 
+    <div class="{{ .BaseColour }} h-[15em] max-w-[30em] flex flex-col rounded-[10px] 
         shadow-[0_4px_4px_0_rgba(0,0,0,0.25)]">
         <div class="{{ .HeaderColour }} h-[38px] w-full text-wrap px-3 py-1.5 text-lg rounded-t-[10px]
             flex items-center justify-center">
+            <div class="absolute flex gap-2 left-4">
+                <div class="circle-red bg-red-800 rounded-full h-2 w-2"></div>
+                <div class="circle-yellow bg-amber-600 rounded-full h-2 w-2"></div>
+                <div class="circle-green bg-green-800 rounded-full h-2 w-2"></div>
+            </div>
             {{ .Name }}
         </div>
         

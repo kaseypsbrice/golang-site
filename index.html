@@ -16,10 +16,10 @@
 <body>
     {{ template "navbar" . }}
     <main class="flex flex-col">
-        <section id="home" class="flex-1 min-h-[80vh] bg-gray-100">
+        <section id="home" class="flex-1 min-h-[80vh] bg-purple-backing">
             {{ template "home" . }}
         </section>
-        <section id="projects" class="flex-1 min-h-screen bg-gray-200">
+        <section id="projects" class="flex-1 min-h-screen pb-20 bg-purple-backing">
             {{ template "projects" . }}
         </section>
         <section id="about" class="flex-1 min-h-screen bg-gray-300">
@@ -28,11 +28,11 @@
         <section id="contact" class="flex-1 min-h-screen bg-gray-400">
             <!-- Contact section -->
         </section>
-        <!-- Icons 
+        
         <div class="flex-row pl-30 absolute fixed bottom-0 p-5 w-full">
             <span class="mdi--github"></span>
             <span class="mdi--linkedin"></span>
-        </div> -->
+        </div>
     </main>
 </body>
 </html>
