@@ -105,7 +105,7 @@ func handleTemplates(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func timeAPI(w http.ResponseWriter, r *http.Request) {
+func returnTime(w http.ResponseWriter, r *http.Request) {
 	hours, minutes := getAdelaideTime()
 
 	response := fmt.Sprintf(`
@@ -129,7 +129,7 @@ func main() {
 	/* Resolves server requests to static files e.g. images, css files. */
 
 	http.HandleFunc("/", handleTemplates)
-	http.HandleFunc("/api/time", timeAPI)
+	http.HandleFunc("/api/time", returnTime)
 	/* Maps routes / endpoints */
 
 	log.Fatal(http.ListenAndServe(":8000", nil))

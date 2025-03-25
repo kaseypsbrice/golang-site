@@ -5,7 +5,7 @@ body {
 }
 
 @theme {
-  --color-purple-high: #d7d7ff; /* Highlight for titles */
+  --color-purple-high: #c8c8f8; /* Highlight for titles */
   --color-purple-backing: #eff0ff;
 
   /* === Project Notes === */
@@ -44,6 +44,19 @@ body {
     animation: lineGrow 2s ease-out forwards;
     animation-delay: .2s;
   }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-in-out forwards;
 }
 
 /*---------------- Icons from Iconify ---------------*/
